@@ -1,6 +1,14 @@
 <?php
 
+use App\Http\Controllers\Home;
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\categoryController;
+
+use App\Http\Controllers\HomeController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +21,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/',[Home::class, 'index']);
+Route::get('/about',[Home::class, 'about']);
+Route::get('/contact',[Home::class, 'contact']);
+Route::get('/men',[Home::class, 'men']);
+Route::get('/women',[Home::class, 'women']);
+Route::get('/cart',[Home::class, 'cart']);
+Route::get('/checkout',[Home::class, 'checkout']);
+Route::get('/product',[Home::class, 'product']);
+Route::get('/order',[Home::class, 'order']);
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::group(['middleware' => ['auth','isAdmin']], function () {
+
+    Route::get('/dashboard','App\Http\Controllers\Admin\FrontendController@index' );
+    Route::get('categories',[categoryController::class, 'index'] );
+ 
+ });
