@@ -4,7 +4,7 @@
 
 <div class="card">
     <div class="card-body">
-        <h1>Marwa nseerat</h1>
+        <h1>Marwa Nseerat</h1>
     </div>
 </div>
     

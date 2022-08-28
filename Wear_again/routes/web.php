@@ -42,5 +42,10 @@ Route::group(['middleware' => ['auth','isAdmin']], function () {
 
     Route::get('/dashboard','App\Http\Controllers\Admin\FrontendController@index' );
     Route::get('categories',[categoryController::class, 'index'] );
+    Route::get(' add category',[categoryController::class, 'add'] );
+    Route::post(' insert-category',[categoryController::class, 'insert'] );
+    Route::get(' edit-cate/{id}',[categoryController::class, 'edit'] );
+
  
+  
  });
