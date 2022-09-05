@@ -17,8 +17,8 @@
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<div class="breadcrumbs-img" style="background-image: url(images/cover-img-1.jpg);">
-							<h2>Women's</h2>
+						<div class="breadcrumbs-img" style="background-image: url(images/catewomen.jpg); background-position:right center;">
+							<h2 >Women's</h2>
 						</div>
 						<div class="menu text-center">
 							<p><a href="#">New Arrivals</a> <a href="#">Best Sellers</a> <a href="#">Extended Widths</a> <a href="#">Sale</a></p>
@@ -28,7 +28,7 @@
 			</div>
 		</div>
 
-		<div class="colorlib-featured">
+		{{-- <div class="colorlib-featured">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-4 text-center">
@@ -57,7 +57,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 
 		<div class="colorlib-product">
 			<div class="container">

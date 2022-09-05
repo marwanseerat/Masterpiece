@@ -45,6 +45,7 @@ Route::group(['middleware' => ['auth','isAdmin']], function () {
     Route::get(' add category',[categoryController::class, 'add'] );
     Route::post(' insert-category',[categoryController::class, 'insert'] );
     Route::get(' edit-cate/{id}',[categoryController::class, 'edit'] );
+    Route::put( 'update-cate/{id}',[categoryController::class, 'update'] );
 
  
   

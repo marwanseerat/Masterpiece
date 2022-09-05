@@ -17,7 +17,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<div class="breadcrumbs-img" style="background-image: url(images/cover-img-1.jpg);">
+						<div class="breadcrumbs-img" style="background-image: url(images/catemen.jpg); color: #212529">
 							<h2>Men's</h2>
 						</div>
 						<div class="menu text-center">
@@ -30,7 +30,7 @@
 
 		<div class="colorlib-featured">
 			<div class="container">
-				<div class="row">
+				{{-- <div class="row">
 					<div class="col-sm-4 text-center">
 						<div class="featured">
 							<div class="featured-img featured-img-2" style="background-image: url(images/men.jpg);">
@@ -39,7 +39,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-sm-4 text-center">
+					<div class="col-sm-6 text-center">
 						<div class="featured">
 							<div class="featured-img featured-img-2" style="background-image: url(images/women.jpg);">
 								<h2>Dress</h2>
@@ -47,7 +47,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-sm-4 text-center">
+					<div class="col-sm-6 text-center">
 						<div class="featured">
 							<div class="featured-img featured-img-2" style="background-image: url(images/item-11.jpg);">
 								<h2>Sports</h2>
@@ -55,7 +55,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> --}}
 			</div>
 		</div>
 

@@ -289,7 +289,7 @@
 			</div>
 		</div>
 
-		<div class="colorlib-partner">
+		{{-- <div class="colorlib-partner">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
@@ -314,7 +314,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --}}
 
 @endsection
 

@@ -4,9 +4,11 @@
 	<title>Footwear - Free Bootstrap 4 Template by Colorlib</title>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/4a27207296.js" crossorigin="anonymous"></script>
+
 	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
@@ -33,8 +35,8 @@
 	<link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
 
 	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style copy.css">
+	<link rel="stylesheet" href="{{ asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/style copy.css')}}">
 
 	</head>
 	<body>
@@ -61,23 +63,71 @@
 					<div class="row">
 						<div class="col-sm-12 text-left menu-1">
 							<ul>
-								<li class="active"><a href="index.html">Home</a></li>
+								<li class="active"><a href="{{url('/')}}">Home</a></li>
 								<li class="has-dropdown">
-									<a href="men.html">Men</a>
+									<a href="{{url('/men')}}">Shop</a>
 									<ul class="dropdown">
-										<li><a href="product-detail.html">Product Detail</a></li>
+										<li><a href="{{url('/men')}}">Menswear</a></li>
+										<li><a href="{{url('/women')}}">Womenswear</a></li>
+										 {{-- <li><a href="product-detail.html">Product Detail</a></li>
 										<li><a href="cart.html">Shopping Cart</a></li>
 										<li><a href="checkout.html">Checkout</a></li>
 										<li><a href="order-complete.html">Order Complete</a></li>
-										<li><a href="add-to-wishlist.html">Wishlist</a></li>
+										<li><a href="add-to-wishlist.html">Wishlist</a></li>  --}}
 									</ul>
 								</li>
-								<li><a href="women.html">Women</a></li>
-								<li><a href="about.html">About</a></li>
-								<li><a href="contact.html">Contact</a></li>
-								<li><a href="login.html">Login</a></li>
-								<li><a href="register.html">Register</a></li>
-								<li class="cart"><a href="cart.html"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+								{{-- <li><a href="women.html">Women</a></li> --}}
+								<li><a href="{{url('/about')}}">About</a></li>
+								<li><a href="{{url('/contact')}}">Contact</a></li>
+								@if (Route::has('login'))
+								@auth
+								
+									{{-- <li class="cart has-dropdown " >
+										<a href="{{url('/home')}}">  <i class="material-icons">person</i></a>
+										<ul class="dropdown">
+											<li> <a  href="{{ route('logout') }}"
+												onclick="event.preventDefault();
+															  document.getElementById('logout-form').submit();">
+												 {{ __('Logout') }}
+											 </a>
+		 
+											 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+												 @csrf
+											 </form>
+											</li>
+											<li><a href="{{url('/home')}}">Profile</a></li>
+										</ul>
+									</li> --}}
+
+									<li class="nav-item dropdown cart">
+										<a class="dropdown" href="{{url('/home')}}" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										  <i class="material-icons">person</i>
+										  <p class="d-lg-none d-md-block">
+											Account
+										  </p>
+										</a>
+										<div class="dropdown-menu dropdown-menu-right profil-section" aria-labelledby="navbarDropdownProfile" >
+										  <a class="dropdown-item " href="{{url('/home')}}">Profile</a>
+										  <a class="dropdown-item " href="{{ route('logout') }}"
+										  onclick="event.preventDefault();
+														document.getElementById('logout-form').submit();">
+										   {{ __('Logout') }}
+									   </a>
+							
+									   <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+										   @csrf
+									   </form>
+										</div>
+									  </li>
+								
+								@else
+								<li><a href="{{url('/login')}}">Login</a></li>
+								<li><a href="{{url('/register')}}">Register</a></li>
+								@endauth
+								@endif
+								<li class="cart" ><a href="{{url('/cart')}}"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+
+								
 							</ul>
 						</div>
 					</div>
