@@ -1,7 +1,7 @@
 
 		
 		@extends('layout.master')
-
+		@section('title','Login')
 		@section('content')
 		<!--================Login Box Area =================-->
 	<section class="login_box_area section-margin">

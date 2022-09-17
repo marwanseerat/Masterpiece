@@ -1,4 +1,5 @@
 @extends('layout.master')
+@section('title', 'User Profile')
 
 @section('content')
 
@@ -17,7 +18,7 @@
                             <p>795 Folsom Ave, Suite 600 San Francisco, CADGE 94107</p>
                             <div>
                                 <button class="btn btn-primary btn-round">Edit Profile</button>
-                                <button class="btn btn-primary btn-round btn-simple">Message</button>
+                                <button class="btn btn-primary btn-round btn-simple">Start Sell</button>
                             </div>
                             
                         </div>                

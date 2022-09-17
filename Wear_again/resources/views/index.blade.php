@@ -1,5 +1,6 @@
 @extends('layout.master')
 
+@section('title', 'Home')
 @section('content')
 		<aside id="colorlib-hero">
 			<div class="flexslider">

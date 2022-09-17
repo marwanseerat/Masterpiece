@@ -1,6 +1,6 @@
 
 @extends('layout.master')
-
+@section('title', 'Checkout')
 @section('content')
 		<div class="breadcrumbs">
 			<div class="container">

@@ -5,7 +5,7 @@ use App\Http\Controllers\Home;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\categoryController;
-
+use App\Http\Controllers\contactController;
 use App\Http\Controllers\HomeController;
 
 
@@ -24,7 +24,8 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/',[Home::class, 'index']);
 Route::get('/about',[Home::class, 'about']);
-Route::get('/contact',[Home::class, 'contact']);
+Route::get('/contact',[contactController::class, 'contact']);
+Route::post('/create',[contactController::class, 'insert']);
 Route::get('/men',[Home::class, 'men']);
 Route::get('/women',[Home::class, 'women']);
 Route::get('/cart',[Home::class, 'cart']);
