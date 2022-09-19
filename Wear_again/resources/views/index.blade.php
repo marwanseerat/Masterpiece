@@ -5,7 +5,7 @@
 		<aside id="colorlib-hero">
 			<div class="flexslider">
 				<ul class="slides">
-			   	<li style="background-image: url(images/slide-04.jpg);">
+			   	{{-- <li style="background-image: url(images/slide-04.jpg);">
 			   		<div class="overlay"></div>
 			   		<div class="container-fluid">
 			   			<div class="row">
@@ -22,8 +22,8 @@
 				   			</div>
 				   		</div>
 			   		</div>
-			   	</li>
-			   	<li style="background-image: url(images/slide-03.jpg);">
+			   	</li> --}}
+			   	{{-- <li style="background-image: url(images/slide-03.jpg);">
 			   		<div class="overlay"></div>
 			   		<div class="container-fluid">
 			   			<div class="row">
@@ -40,19 +40,18 @@
 				   			</div>
 				   		</div>
 			   		</div>
-			   	</li>
-			   	<li style="background-image: url(images/slide-02.jpg);">
+			   	</li> --}}
+			   	<li style="background-image: url(images/hero.jpg);">
 			   		<div class="overlay"></div>
 			   		<div class="container-fluid">
 			   			<div class="row">
-				   			<div class="col-sm-6 offset-sm-3 text-center slider-text">
+				   			<div class="col-sm-6 offset-sm-3 text-left slider-text">
 				   				<div class="slider-text-inner">
 				   					<div class="desc">
-					   					<h1 class="head-1">New</h1>
-					   					<h2 class="head-2">Arrival</h2>
-					   					<h2 class="head-3">up to <strong class="font-weight-bold">30%</strong> off</h2>
-					   					<p class="category"><span>New stylish shoes for men</span></p>
-					   					<p><a href="#" class="btn btn-primary">Shop Collection</a></p>
+					   					<h1 class="head-1">BUY. SELL.</h1>
+					   					<h2 class="head-1">DO IT ALL OVER.</h2>
+					   					<h5 class="head-6" style="color: #fff">Welcome to the community-powered circular fashion marketplace.</h5>
+					   					<p><a href="#" class="btn btn-primary">Shop Now</a></p>
 				   					</div>
 				   				</div>
 				   			</div>
@@ -66,7 +65,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12 text-center">
-						<h2 class="intro">It started with a simple idea: Create quality, well-designed products that I wanted myself.</h2>
+						<h3 class="intro">It started with a simple idea: Create quality, well-designed products that I wanted myself.</h3>
 					</div>
 				</div>
 			</div>
@@ -76,7 +75,7 @@
 				<div class="row">
 					<div class="col-sm-6 text-center">
 						<div class="featured">
-							<a href="#" class="featured-img" style="background-image: url(images/man.jpg);"></a>
+							<a href="#" class="featured-img" style="background-image: url(images/men1.jpg); background-position:center center;"></a>
 							<div class="desc">
 								<h2><a href="#">Shop Men's Collection</a></h2>
 							</div>
@@ -84,7 +83,7 @@
 					</div>
 					<div class="col-sm-6 text-center">
 						<div class="featured">
-							<a href="#" class="featured-img" style="background-image: url(images/gallery-09.jpg);"></a>
+							<a href="#" class="featured-img" style="background-image: url(images/women2.jpg); background-position:center center;"></a>
 							<div class="desc">
 								<h2><a href="#">Shop Women's Collection</a></h2>
 							</div>
@@ -93,6 +92,37 @@
 				</div>
 			</div>
 		</div>
+
+		{{-- <div class="top_catagory_area section-padding-80 clearfix">
+			<div class="container">
+				<div class="row justify-content-center">
+					<!-- Single Catagory -->
+					<div class="col-12 col-sm-6 col-md-4">
+						<div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(images/bg-2.jpg); height: 30vh;">
+							<div class="catagory-content">
+								<a href="#">Clothing</a>
+							</div>
+						</div>
+					</div>
+					<!-- Single Catagory -->
+					<div class="col-12 col-sm-6 col-md-4">
+						<div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(images/bg-3.jpg);height: 30vh;">
+							<div class="catagory-content">
+								<a href="#">Shoes</a>
+							</div>
+						</div>
+					</div>
+					<!-- Single Catagory -->
+					<div class="col-12 col-sm-6 col-md-4">
+						<div class="single_catagory_area d-flex align-items-center justify-content-center bg-img" style="background-image: url(images/bg-4.jpg);height: 30vh;">
+							<div class="catagory-content">
+								<a href="#">Accessories</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> --}}
 
 		<div class="colorlib-product">
 			<div class="container">
