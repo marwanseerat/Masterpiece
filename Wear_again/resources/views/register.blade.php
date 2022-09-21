@@ -23,13 +23,17 @@
                                 </div>
                                 <div class="col-md-12 form-group">
                                     <input type="text" class="form-control" id="email" name="email" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address'">
+                                 </div>
+                                 <div class="col-md-12 form-group">
+                                    <input type="text" class="form-control" id="email" name="address" placeholder=" Address" onfocus="this.placeholder = ''" onblur="this.placeholder = ' Address'">
+                                 </div>
+
+                  <div class="col-md-12 form-group">
+                    <input type="text" class="form-control" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
                   </div>
                   <div class="col-md-12 form-group">
-                                    <input type="text" class="form-control" id="password" name="password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
-                  </div>
-                  <div class="col-md-12 form-group">
-                                    <input type="text" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'">
-                                </div>
+                    <input type="text" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'">
+                 </div>
                                 <div class="col-md-12 form-group">
                                     <div class="creat_account">
                                         <input type="checkbox" id="f-option2" name="selector">

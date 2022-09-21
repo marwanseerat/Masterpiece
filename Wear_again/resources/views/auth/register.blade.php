@@ -47,7 +47,15 @@
                                 @enderror
                             </div>
                        
+                            <div class="col-md-12 form-group">
+                                <input id="address" type="text" class="form-control @error('email') is-invalid @enderror" name="address" value="{{ old('email') }}" required autocomplete="address" placeholder="Address">
 
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         
                             {{-- <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label> --}}
 

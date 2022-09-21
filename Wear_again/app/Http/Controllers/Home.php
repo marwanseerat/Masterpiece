@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class Home extends Controller
@@ -32,7 +33,9 @@ class Home extends Controller
     public function checkout(){
         return view('checkout');
     }
-
+    public function insertP(){
+        return view('insert');
+    }
     public function product(){
         return view('product-detail');
     }
@@ -40,4 +43,13 @@ class Home extends Controller
     public function order(){
         return view('order-complete');
     }
+
+    // public function User($id)
+    // { return view('editUser');
+        
+       
+    // }
+    
+    
+   
 }

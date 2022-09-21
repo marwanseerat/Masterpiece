@@ -12,16 +12,17 @@
 				</div>
 			</div>
 		</div>
-
+		<br>
+		<br>
 		<div class="breadcrumbs-two">
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<div class="breadcrumbs-img" style="background-image: url(images/menc.jpg); color: #212529 ; height: 50vh;">
+						{{-- <div class="breadcrumbs-img" style="background-image: url(images/m2.jpg); color: #212529 ; height: 45vh;">
 							<h2>Men's</h2>
-						</div>
+						</div> --}}
 						<div class="menu text-center">
-							<p><a href="#">New Arrivals</a> <a href="#">Best Sellers</a> <a href="#">Extended Widths</a> <a href="#">Sale</a></p>
+							<p><a href="#">Show all</a> <a href="#">Tops</a> <a href="#">Bottoms</a></p>
 						</div>
 					</div>
 				</div>
@@ -265,32 +266,7 @@
 			</div>
 		</div>
 
-		<div class="colorlib-partner">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
-						<h2>Trusted Partners</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col partner-col text-center">
-						<img src="images/brand-1.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
-					</div>
-					<div class="col partner-col text-center">
-						<img src="images/brand-2.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
-					</div>
-					<div class="col partner-col text-center">
-						<img src="images/brand-3.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
-					</div>
-					<div class="col partner-col text-center">
-						<img src="images/brand-4.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
-					</div>
-					<div class="col partner-col text-center">
-						<img src="images/brand-5.jpg" class="img-fluid" alt="Free html4 bootstrap 4 template">
-					</div>
-				</div>
-			</div>
-		</div>
+		
 
 		@endsection
 

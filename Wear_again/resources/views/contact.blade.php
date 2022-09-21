@@ -24,7 +24,7 @@
 								<p><span><i class="icon-location"></i></span> Fifth Area  <br> Aqaba Jordan</p>
 							</div>
 							<div class="col-md-3">
-								<p><span><i class="icon-phone3"></i></span> <a href="tel://1234567920">+962 772320059</a></p>
+								<p><span><i class="icon-phone3"></i></span> <a href="tel://1234567920">+962 778090532</a></p>
 							</div>
 							<div class="col-md-3">
 								<p><span><i class="icon-paperplane"></i></span> <a href="mailto:info@yoursite.com">wear_again@gmail.com</a></p>

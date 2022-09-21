@@ -30,13 +30,20 @@ Route::get('/men',[Home::class, 'men']);
 Route::get('/women',[Home::class, 'women']);
 Route::get('/cart',[Home::class, 'cart']);
 Route::get('/checkout',[Home::class, 'checkout']);
+Route::get('/insert',[Home::class, 'insertP']);
+
 Route::get('/product',[Home::class, 'product']);
 Route::get('/order',[Home::class, 'order']);
 
 
+Route::get('edit/{id}', [HomeController::class, 'editUser']);
+Route::put('update/{id}', [HomeController::class, 'updateUser']);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
 
 
 Route::group(['middleware' => ['auth','isAdmin']], function () {
