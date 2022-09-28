@@ -18,7 +18,7 @@
                             <p>{{ Auth::user()->address }}</p>
                             <div>
                                <a href="#"><button class="btn btn-primary btn-round" id="edit-button">Edit Profile</button></a> 
-                                <button class="btn btn-primary btn-round btn-simple">Start Sell</button>
+                              <a href="{{url('/product')}}"><button class="btn btn-primary btn-round btn-simple">Start Sell</button></a>  
                             </div>
                             
                         </div>                
@@ -70,28 +70,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <div class="mt-4">
-                        <div class="row">
-                            <div class="col-2">
-                                <div class="mt-3">
-                                    <h5>All Products</h5>
-                                   
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="mt-3">
-                                    <h5>Selling</h5>
-                                  
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="mt-3">
-                                    <h5>Sold</h5>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
+                  
        
                     <script>
                         document.getElementById('edit-form').style.display='none';

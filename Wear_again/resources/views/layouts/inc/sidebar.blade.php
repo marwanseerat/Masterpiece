@@ -34,11 +34,40 @@
             <p> Edit Category</p>
           </a>
         </li>
-
         <li class="nav-item ">
-          <a class="nav-link" href="./tables.html">
-            <i class="material-icons">content_paste</i>
-            <p>Table List</p>
+          <a class="nav-link" href="{{url('subcategories')}}">
+            <i class="material-icons">category</i>
+            <p>  Subcategory</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{{url('add_subcategory')}}">
+            <i class="material-icons">category</i>
+            <p> Add Subcategory</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{{url('subcategories')}}">
+            <i class="material-icons">category</i>
+            <p> Edit Subcategory</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{{url('user')}}">
+            <i class="material-icons">person</i>
+            <p> Users</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{{url('add_subcategor')}}">
+            <i class="material-icons">person</i>
+            <p>Add Users</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{{url('user')}}">
+            <i class="material-icons">person</i>
+            <p>Edit Users</p>
           </a>
         </li>
       </ul>

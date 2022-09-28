@@ -15,20 +15,9 @@
                     <input type="text" class="form-control" name="name">
                 </div>
 
-                <div class="col-md-12 mb-5">
+                {{-- <div class="col-md-12 mb-5">
                     <input type="file" class="form-control" name="image">
-                </div>
-
-                
-                <div class="col-md-12 mb-5">
-                    <label for="">parent category</label>
-                   <select class="form-control input-md" wire:model = 'category_id'>
-                    <option value="">None</option>
-                    @foreach ($category as $item)
-                    <option value="{{$item->id}}">{{ $item->name}}</option>
-                    @endforeach
-                   </select>
-                </div>
+                </div> --}}
 
                 <div class="col-md-12 mb-3">
                     <button type="submit" class="btn btn-primary" >Submit</button>

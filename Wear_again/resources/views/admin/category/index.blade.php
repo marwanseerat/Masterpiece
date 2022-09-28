@@ -4,7 +4,7 @@
 
 <div class="card">
     <div class="card-header">
-        <h4>Add category</h4>
+        <h4>category</h4>
         </div>
     <div class="card-body">
         <table class="table">
@@ -13,7 +13,7 @@
                     <th>Id</th>
                     <th>Name</th>
                     <th>Image</th>
-                    <th>Action</th>
+                    <th style="display: none;">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -23,10 +23,10 @@
                         <td>{{ $item->id}}</td>
                         <td>{{ $item->name}}</td>
                         <td>
-                            <img src="{{asset('asset/uplode/category'.$item->image)}}" alt="">
+                            <img src="images/product/{{$item->image}}" alt="" style="height: 10vh;">
                         </td>
 
-                        <td>
+                        <td style="display: none;">
                             <a href="{{url('edit-cate'.$item->id)}}" class="btn btn-primary">Edit</a >
                             <a href="" class="btn btn-danger">Delete</a >
 

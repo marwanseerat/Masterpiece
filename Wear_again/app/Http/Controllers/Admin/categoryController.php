@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Models\Category;
 use App\Models\Subcategory;
-use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller
 {
@@ -24,56 +25,92 @@ class CategoryController extends Controller
 
     public function insert(Request $request){
 
-    if($this->category_id){
-        $scategory = new Subcategory();
-        $scategory->name = $this->name;
-        $scategory->category_id = $this->category_id;
-        $scategory->save();
-    }
-
-    else{
-
-        $category = new Category();
-
-        if($request->hasFile('image')){
-            $file = $request->file('image');
-            $ext = $file->getClientOriginalExtension();
-            $filename = time().'.'.$ext ;
-            $file->move('asset'.$filename);
-            $category->image = $filename;
-        }
-
-
+        $category = new Category;
         $category->name = $request->input('name');
-        $category->save();
-    }
-        return redirect('/dashboard')->with('status'," Category added Successfully");
+            $file= $request->file('image');
+            $filename=$file->getClientOriginalName();
+            $file-> move(public_path('images/product'), $filename);
+            $category->image= $filename;
+
+            $category->save();
+            return redirect('/dashboard')->with('status','Your category Added Successfully');
 
     }
 
-    public function edit($id){
+
+    public function editcate($id)
+    {
         $category = Category::find($id);
-        return view('admin.category.edit', compact('category'));
+        return view('admin.category.add', compact('category'));
     }
 
-    public function update(Request $request, $id){
+    public function updatecate(Request $request, $id)
+    {
         $category = Category::find($id);
-       if($request->hasFile('image')){
-        $path = 'asset'.$category->image;
-        if(File::exists($path)){
-
-            File::delete($path);
-        }
-        $file = $request->file('image');
-        $ext = $file->getClientOriginalExtension();
-        $filename = time().'.'.$ext ;
-        $file->move('asset'.$filename);
-        $category->image = $filename;
-
-       }
-       $category->name = $request->input('name');
-       $category->update();
-       return redirect('/dashboard')->with('status'," Category updated Successfully");
+        $category->name = $request->input('name');
+        $category->update();
+        return redirect('/dashbaord')->back()->with('status','category Updated Successfully');
     }
-    
+
+//subcategory
+public function subcategory(){
+    $category = subcategory::all();
+    return view('admin.category.subcategory', compact('category'));
+}
+public function addSub(){
+    // $category = subcategory::all();
+    $category = Category::all();
+    return view('admin.category.addSub',compact('category'));
+}
+
+public function addSubcategory(Request $request){
+    $subcategory = new Category;
+    $subcategory->name = $request->input('name');
+    $subcategory->category_id = $request->input('category');
+        $subcategory->save();
+        return redirect('/dashboard')->with('status','Your subcategory Added Successfully');
+
+}
+
+public function editSub($id)
+{
+    $subcategory = Subcategory::find($id) ;
+    return view('editUser');
+   
+}
+
+public function updateSub(Request $request,$id)
+{
+    $subcategory = User::find($id) ;
+    $subcategory->name = $request->input('name');
+    $subcategory->category_id = $request->input('category');
+    $subcategory->update();
+    return redirect('/dashboard')->with('status', 'Your Data Updated Successfully');
+
+}
+
+//user
+public function user(){
+    $user = User::all();
+    return view('admin.category.user', compact('user'));
+}
+
+// public function editUser($id)
+// {
+//     $user = User::find($id) ;
+//     return view('editUser');
+   
+// }
+
+// public function updateUser(Request $request,$id)
+// {
+//     $user = User::find($id) ;
+//     $user->name = $request->input('name');
+//     $user->email = $request->input('email');
+//     $user->address = $request->input('address');
+//     $user->update();
+//     return redirect('/home')->with('status', 'Your Data Updated Successfully');
+
+// }
+
 }

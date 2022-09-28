@@ -21,7 +21,7 @@
 						{{-- <div class="breadcrumbs-img" style="background-image: url(images/m2.jpg); color: #212529 ; height: 45vh;">
 							<h2>Men's</h2>
 						</div> --}}
-						<div class="menu text-center">
+						<div class="menu text-center" style="display: none;">
 							<p><a href="#">Show all</a> <a href="#">Tops</a> <a href="#">Bottoms</a></p>
 						</div>
 					</div>
@@ -68,18 +68,20 @@
 					</div>
 				</div>
 				<div class="row row-pb-md">
+					@foreach ($men as $item)
 					<div class="col-md-3 col-lg-3 mb-4 text-center">
 						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="images/item-1.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							<a href="productD/{{$item->id}}" class="prod-img">
+								<img src="images/product/{{$item->image}}" class="img-fluid" alt="Free html5 bootstrap 4 template">
 							</a>
 							<div class="desc">
-								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
-								<span class="price">$139.00</span>
+								<h2><a href="#">{{$item->name}}</a></h2>
+								<span class="price">JD{{$item->price}}</span>
 							</div>
 						</div>
 					</div>
-					<div class="col-md-3 col-lg-3 mb-4 text-center">
+					@endforeach
+					{{-- <div class="col-md-3 col-lg-3 mb-4 text-center">
 						<div class="product-entry border">
 							<a href="#" class="prod-img">
 								<img src="images/item-2.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
@@ -262,7 +264,7 @@
 		               </ul>
 		            </div>
 					</div>
-				</div>
+				</div> --}}
 			</div>
 		</div>
 

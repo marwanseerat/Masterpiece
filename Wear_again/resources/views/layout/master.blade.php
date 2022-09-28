@@ -1,3 +1,12 @@
+@php
+	$number;
+	if (isset($_SESSION["number"])) {
+		$number=$_SESSION["number"];
+	}else{
+		$number=0;
+	}
+@endphp
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -7,7 +16,11 @@
    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/4a27207296.js" crossorigin="anonymous"></script>
+    {{-- <script src="https://kit.fontawesome.com/4a27207296.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"> --}}
+	{{-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> --}}
+	<link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 
 
 	
@@ -42,7 +55,7 @@
 	</head>
 	<body>
 		
-	<div class="colorlib-loader"></div>
+	{{-- <div class="colorlib-loader"></div> --}}
 
 	<div id="page">
 		<nav class="colorlib-nav" role="navigation">
@@ -52,21 +65,21 @@
 						<div class="col-sm-7 col-md-9">
 							<div id="colorlib-logo"><a href="index.html">Wear again</a></div>
 						</div>
-						<div class="col-sm-5 col-md-3">
+						{{-- <div class="col-sm-5 col-md-3">
 			            <form action="#" class="search-wrap">
 			               <div class="form-group">
 			                  <input type="search" class="form-control search" placeholder="Search">
 			                  <button class="btn btn-primary submit-search text-center" type="submit"><i class="icon-search"></i></button>
 			               </div>
 			            </form>
-			         </div>
+			         </div> --}}
 		         </div>
 					<div class="row">
 						<div class="col-sm-12 text-left menu-1">
 							<ul>
-								<li class="active"><a href="{{url('/')}}">Home</a></li>
+								<li class="active"><a class="link" href="{{url('/')}}">Home</a></li>
 								<li class="has-dropdown">
-									<a href="{{url('/men')}}">Shop</a>
+									<a class="link" href="{{url('/men')}}">Shop</a>
 									<ul class="dropdown">
 										<li><a href="{{url('/men')}}">Menswear</a></li>
 										<li><a href="{{url('/women')}}">Womenswear</a></li>
@@ -78,8 +91,8 @@
 									</ul>
 								</li>
 								{{-- <li><a href="women.html">Women</a></li> --}}
-								<li><a href="{{url('/about')}}">About</a></li>
-								<li><a href="{{url('/contact')}}">Contact</a></li>
+								<li><a class="link" href="{{url('/about')}}">About</a></li>
+								<li><a class="link" href="{{url('/contact')}}">Contact</a></li>
 								@if (Route::has('login'))
 								@auth
 								
@@ -122,11 +135,11 @@
 									  </li>
 								
 								@else
-								<li><a href="{{url('/login')}}">Login</a></li>
-								<li><a href="{{url('/register')}}">Register</a></li>
+								<li><a class="link" href="{{url('/login')}}">Login</a></li>
+								<li><a class="link" href="{{url('/register')}}">Register</a></li>
 								@endauth
 								@endif
-								<li class="cart" ><a href="{{url('/cart')}}"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+								<li class="cart" ><a href="{{url('/cart')}}"><i class="icon-shopping-cart"></i> Cart [{{$number}}]</a></li>
 
 								
 							</ul>
@@ -264,8 +277,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="js/jquery.stellar.min.js"></script>
 	<!-- Main -->
 	<script src="js/main.js"></script>
-
-	{{-- <script src="maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></script> --}}
-
+	
+	
 	</body>
 </html>

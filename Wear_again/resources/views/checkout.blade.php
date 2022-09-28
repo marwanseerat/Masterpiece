@@ -35,99 +35,55 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-8">
-						<form method="post" class="colorlib-form">
+						<form action="/order" method="post" class="colorlib-form">
+							@csrf
+							<input type="hidden" value="{{$total}}" name='subtotal'>
+							
 							<h2>Billing Details</h2>
 		              	<div class="row">
-			               <div class="col-md-12">
-			                  <div class="form-group">
-			                  	<label for="country">Select Country</label>
-			                     <div class="form-field">
-			                     	<i class="icon icon-arrow-down3"></i>
-			                        <select name="people" id="people" class="form-control">
-				                      	<option value="#">Select country</option>
-				                        <option value="#">Alaska</option>
-				                        <option value="#">China</option>
-				                        <option value="#">Japan</option>
-				                        <option value="#">Korea</option>
-				                        <option value="#">Philippines</option>
-			                        </select>
-			                     </div>
-			                  </div>
-			               </div>
-
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="fname">First Name</label>
-										<input type="text" id="fname" class="form-control" placeholder="Your firstname">
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="lname">Last Name</label>
-										<input type="text" id="lname" class="form-control" placeholder="Your lastname">
-									</div>
-								</div>
+			               
 
 								<div class="col-md-12">
 									<div class="form-group">
-										<label for="companyname">Company Name</label>
-			                    	<input type="text" id="companyname" class="form-control" placeholder="Company Name">
-			                  </div>
-			               </div>
+										<label for="fname"> Name</label>
+										<input type="text" id="fname" value="{{ Auth::user()->name }}" class="form-control" >
+									</div>
+								</div>
+								
+
+								
 
 			               <div class="col-md-12">
 									<div class="form-group">
 										<label for="fname">Address</label>
-			                    	<input type="text" id="address" class="form-control" placeholder="Enter Your Address">
+			                    	<input type="text" id="address" value="{{ Auth::user()->address }}"class="form-control" placeholder="Enter Your Address">
 			                  </div>
-			                  <div class="form-group">
-			                    	<input type="text" id="address2" class="form-control" placeholder="Second Address">
-			                  </div>
+			                  
 			               </div>
-			            
-			               <div class="col-md-12">
-									<div class="form-group">
-										<label for="companyname">Town/City</label>
-			                    	<input type="text" id="towncity" class="form-control" placeholder="Town or City">
-			                  </div>
-			               </div>
-			            
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="stateprovince">State/Province</label>
-										<input type="text" id="fname" class="form-control" placeholder="State Province">
-									</div>
-								</div>
-								<div class="col-md-6">
-									<div class="form-group">
-										<label for="lname">Zip/Postal Code</label>
-										<input type="text" id="zippostalcode" class="form-control" placeholder="Zip / Postal">
-									</div>
-								</div>
-							
-								<div class="col-md-6">
+
+								<div class="col-md-12">
 									<div class="form-group">
 										<label for="email">E-mail Address</label>
-										<input type="text" id="email" class="form-control" placeholder="State Province">
+										<input type="text" id="email" value="{{ Auth::user()->email }}" class="form-control" placeholder="State Province">
 									</div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-12">
 									<div class="form-group">
 										<label for="Phone">Phone Number</label>
-										<input type="text" id="zippostalcode" class="form-control" placeholder="">
+										<input type="number" id="zippostalcode" class="form-control" placeholder="" name='phone'>
 									</div>
 								</div>
 
-								<div class="col-md-12">
+								{{-- <div class="col-md-12">
 									<div class="form-group">
 										<div class="radio">
 										  <label><input type="radio" name="optradio"> Create an Account? </label>
 										  <label><input type="radio" name="optradio"> Ship to different address</label>
 										</div>
 									</div>
-								</div>
+								</div> --}}
 		               </div>
-		            </form>
+		            
 					</div>
 
 					<div class="col-lg-4">
@@ -137,14 +93,19 @@
 									<h2>Cart Total</h2>
 									<ul>
 										<li>
-											<span>Subtotal</span> <span>$100.00</span>
+											<li class="d-flex justify-conent-between">
+											<span>Subtotal</span> <span>JD {{$total}}</span></li>
+											<li>
 											<ul>
-												<li><span>1 x Product Name</span> <span>$99.00</span></li>
-												<li><span>1 x Product Name</span> <span>$78.00</span></li>
+												@foreach ($items as $item)
+												<li class="d-flex justify-conent-between"><span> JD {{$item->name}}</span> <span>JD {{$item->price}}</span></li>
+												@endforeach
+												
+												
 											</ul>
 										</li>
-										<li><span>Shipping</span> <span>$0.00</span></li>
-										<li><span>Order Total</span> <span>$180.00</span></li>
+										<li><span>Shipping</span> <span>JD 5.00</span></li>
+										<li><span>Order Total</span> <span>{{$total +5}}</span></li>
 									</ul>
 								</div>
 						   </div>
@@ -157,21 +118,21 @@
 									<div class="form-group">
 										<div class="col-md-12">
 											<div class="radio">
-											   <label><input type="radio" name="optradio"> Direct Bank Tranfer</label>
+											   <label><input type="radio" name="optradio" value="bank"> Direct Bank Tranfer</label>
 											</div>
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="col-md-12">
 											<div class="radio">
-											   <label><input type="radio" name="optradio"> Check Payment</label>
+											   <label><input type="radio" name="optradio" value="check"> Check Payment</label>
 											</div>
 										</div>
 									</div>
 									<div class="form-group">
 										<div class="col-md-12">
 											<div class="radio">
-											   <label><input type="radio" name="optradio"> Paypal</label>
+											   <label><input type="radio" name="optradio"  value="paypal"> Paypal</label>
 											</div>
 										</div>
 									</div>
@@ -187,11 +148,12 @@
 						</div>
 						<div class="row">
 							<div class="col-md-12 text-center">
-								<p><a href="#" class="btn btn-primary">Place an order</a></p>
+								<p><button type="submit" class="btn btn-primary">Place an order</button></p>
 							</div>
 						</div>
 					</div>
 				</div>
+			</form>
 			</div>
 		</div>
 

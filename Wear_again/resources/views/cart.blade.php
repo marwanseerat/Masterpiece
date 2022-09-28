@@ -1,3 +1,8 @@
+@php
+$total=0;
+
+@endphp
+
 @extends('layout.master')
 @section('title', 'Cart')
 
@@ -43,191 +48,79 @@
 							<div class="one-eight text-center">
 								<span>Price</span>
 							</div>
-							<div class="one-eight text-center">
-								<span>Quantity</span>
-							</div>
-							<div class="one-eight text-center">
-								<span>Total</span>
-							</div>
-							<div class="one-eight text-center px-4">
+							
+							<div class="one-eight text-center px-4" style="display: none;">
 								<span>Remove</span>
 							</div>
 						</div>
+						@foreach ($items as $item)
+							@php
+								$total+=$item->price;
+
+							@endphp
+						
 						<div class="product-cart d-flex">
 							<div class="one-forth">
-								<div class="product-img" style="background-image: url(images/item-6.jpg);">
-								</div>
+								<img class="product-img" src="{{URL::asset('/images/product/'.$item->image)}}">
+								
 								<div class="display-tc">
-									<h3>Product Name</h3>
+									<h3>{{$item->name}}</h3>
 								</div>
 							</div>
 							<div class="one-eight text-center">
 								<div class="display-tc">
-									<span class="price">$68.00</span>
+									<span class="price">{{$item->price}}</span>
 								</div>
 							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="1" min="1" max="100">
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<span class="price">$120.00</span>
-								</div>
-							</div>
-							<div class="one-eight text-center">
+							
+							<div class="one-eight text-center" style="display: none;">
 								<div class="display-tc">
 									<a href="#" class="closed"></a>
 								</div>
 							</div>
 						</div>
-						<div class="product-cart d-flex">
-							<div class="one-forth">
-								<div class="product-img" style="background-image: url(images/item-7.jpg);">
-								</div>
-								<div class="display-tc">
-									<h3>Product Name</h3>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<span class="price">$68.00</span>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<form action="#">
-										<input type="text" name="quantity" class="form-control input-number text-center" value="1" min="1" max="100">
-									</form>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<span class="price">$120.00</span>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<a href="#" class="closed"></a>
-								</div>
-							</div>
-						</div>
-						<div class="product-cart d-flex">
-							<div class="one-forth">
-								<div class="product-img" style="background-image: url(images/item-8.jpg);">
-								</div>
-								<div class="display-tc">
-									<h3>Product Name</h3>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<span class="price">$68.00</span>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="1" min="1" max="100">
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<span class="price">$120.00</span>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<a href="#" class="closed"></a>
-								</div>
-							</div>
-						</div>
+						@endforeach
+						
+						
 					</div>
 				</div>
 				<div class="row row-pb-lg">
 					<div class="col-md-12">
 						<div class="total-wrap">
 							<div class="row">
-								<div class="col-sm-8">
-									<form action="#">
-										<div class="row form-group">
-											<div class="col-sm-9">
-												<input type="text" name="quantity" class="form-control input-number" placeholder="Your Coupon Number...">
-											</div>
-											<div class="col-sm-3">
-												<input type="submit" value="Apply Coupon" class="btn btn-primary">
-											</div>
-										</div>
-									</form>
-								</div>
-								<div class="col-sm-4 text-center">
+							<div class="col-sm-6 text-center">
+							</div>
+								<div class="col-sm-6 text-center">
 									<div class="total">
 										<div class="sub">
-											<p><span>Subtotal:</span> <span>$200.00</span></p>
-											<p><span>Delivery:</span> <span>$0.00</span></p>
-											<p><span>Discount:</span> <span>$45.00</span></p>
+											<p><span>Subtotal:</span> <span>JD {{$total}}</span></p>
+											<p><span>Delivery:</span> <span>JD 5.00</span></p>
 										</div>
 										<div class="grand-total">
-											<p><span><strong>Total:</strong></span> <span>$450.00</span></p>
+											<p><span><strong>Total:</strong></span> <span>JD {{$total+5}}</span></p>
 										</div>
 									</div>
+									<br>
+									<br>
 								</div>
+									<form action="/checkout" method="POST">
+										@csrf
+										<input type="hidden" value="{{$total}}" name='total'>
+										<div class="form-group">
+											<button type="submit" class="button button-login w-100">
+											   Checkout
+											</button>
+										</div>
+									</form>
+									
+								</div>
+								
 							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="row">
-					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
-						<h2>Related Products</h2>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-3 col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="images/item-1.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="images/item-2.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Women's Minam Meaghan</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="images/item-3.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Men's Taja Commissioner</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-3 col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="images/item-4.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Russ Men's Sneakers</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-				</div>
+			
 			</div>
 		</div>
 

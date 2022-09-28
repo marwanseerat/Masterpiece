@@ -7,8 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\categoryController;
 use App\Http\Controllers\contactController;
 use App\Http\Controllers\HomeController;
-
-
+use Illuminate\Routing\RouteGroup;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,15 +28,21 @@ Route::post('/create',[contactController::class, 'insert']);
 Route::get('/men',[Home::class, 'men']);
 Route::get('/women',[Home::class, 'women']);
 Route::get('/cart',[Home::class, 'cart']);
-Route::get('/checkout',[Home::class, 'checkout']);
-Route::get('/insert',[Home::class, 'insertP']);
+Route::post('/checkout',[Home::class, 'checkout']);
+Route::get('productD/{product_id}',[Home::class, 'product']);
+Route::post('/order',[Home::class, 'order']);
+Route::get('/addToCart/{id}',[Home::class, 'AddToCart']);
 
-Route::get('/product',[Home::class, 'product']);
-Route::get('/order',[Home::class, 'order']);
 
 
 Route::get('edit/{id}', [HomeController::class, 'editUser']);
 Route::put('update/{id}', [HomeController::class, 'updateUser']);
+
+//productRout
+Route::controller(App\Http\Controllers\productController::class)->group(function (){
+Route::get('/product' , 'index');
+Route::post('/product' , 'store');
+});
 
 Auth::routes();
 
@@ -52,9 +57,25 @@ Route::group(['middleware' => ['auth','isAdmin']], function () {
     Route::get('categories',[categoryController::class, 'index'] );
     Route::get(' add category',[categoryController::class, 'add'] );
     Route::post(' insert-category',[categoryController::class, 'insert'] );
-    Route::get(' edit-cate/{id}',[categoryController::class, 'edit'] );
-    Route::put( 'update-cate/{id}',[categoryController::class, 'update'] );
+    Route::get(' edit-cate/{id}',[categoryController::class, 'editcate'] );
+    Route::put( 'update-cate/{id}',[categoryController::class, 'updatecate'] );
 
- 
+    //subcategory
+    Route::get('subcategories',[categoryController::class, 'subcategory'] );
+    Route::get(' add_subcategory',[categoryController::class, 'addSub'] );
+    Route::post('  insert_subcategory',[categoryController::class, 'addSubcategory'] );
+    Route::get(' edit_subcate/{id}',[categoryController::class, 'editSub'] );
+    Route::put('update_sub/{id}', [categoryController::class, 'updateSub']);
+
+
+
+
+
+
+    //user
+    Route::get('user',[categoryController::class, 'user'] );
+    // Route::get('edit/{id}', [categoryController::class, 'editUser']);
+    // Route::put('update/{id}', [categoryController::class, 'updateUser']);
+
   
  });
